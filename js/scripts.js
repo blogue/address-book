@@ -12,6 +12,10 @@ Contact.prototype.fullName = function() {
   return this.firstName + " " + this.lastName;
 }
 
+Contact.prototype.fullAddress = function() {
+  return this.street + "," + this.city;
+}
+
 // user interface logic
 $(document).ready(function() {
   $("form#new-contact").submit(function(event) {
@@ -28,9 +32,11 @@ $(document).ready(function() {
 
     $("ul#contacts").append("<li><span class='contact'>" + newContact.firstName + "</span></li>");
 
+
     $(".contact").last().click(function() {
       $("#show-contact").show();
       $("#show-contact h2").text(newContact.fullName());
+      $("#full-address").text(newContact.fullAddress());
       $(".first-name").text(newContact.firstName);
       $(".last-name").text(newContact.lastName);
       $(".street").text(newContact.street);
