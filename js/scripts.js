@@ -1,7 +1,11 @@
 //business logic
-function Contact(first, last) {
+function Contact(first, last, street, city, state, zip) {
   this.firstName = first;
   this.lastName = last;
+  this.street = street;
+  this.city = city;
+  this.state = state;
+  this.zip = zip;
 }
 
 Contact.prototype.fullName = function() {
@@ -15,6 +19,10 @@ $(document).ready(function() {
 
     var inputtedFirstName = $("input#new-first-name").val();
     var inputtedLastName = $("input#new-last-name").val();
+    var inputtedStreet = $("input#new-street").val();
+    var inputtedCity = $("input#new-city").val();
+    var inputtedState = $("input#new-state").val();
+    var inputtedZip = $("input#new-zip").val();
 
     var newContact = new Contact(inputtedFirstName, inputtedLastName);
 
@@ -22,9 +30,10 @@ $(document).ready(function() {
 
     $(".contact").last().click(function() {
       $("#show-contact").show();
-      $("#show-contact h2").text(newContact.firstName);
+      $("#show-contact h2").text(newContact.fullName());
       $(".first-name").text(newContact.firstName);
       $(".last-name").text(newContact.lastName);
+
     });
 
     $("input#new-first-name").val("");
