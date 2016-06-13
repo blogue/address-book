@@ -24,7 +24,7 @@ $(document).ready(function() {
     var inputtedState = $("input#new-state").val();
     var inputtedZip = $("input#new-zip").val();
 
-    var newContact = new Contact(inputtedFirstName, inputtedLastName);
+    var newContact = new Contact(inputtedFirstName, inputtedLastName, inputtedStreet, inputtedCity, inputtedState, inputtedZip);
 
     $("ul#contacts").append("<li><span class='contact'>" + newContact.firstName + "</span></li>");
 
@@ -33,6 +33,10 @@ $(document).ready(function() {
       $("#show-contact h2").text(newContact.fullName());
       $(".first-name").text(newContact.firstName);
       $(".last-name").text(newContact.lastName);
+      $(".street").text(newContact.street);
+      $(".city").text(newContact.city);
+      $(".state").text(newContact.state);
+      $(".zip").text(newContact.zip);
 
     });
 
